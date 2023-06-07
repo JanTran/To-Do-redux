@@ -1,12 +1,25 @@
-import { createRoot } from "react-dom/client";
-import MainView from "./components/main-view/main-view";
+export const ADD_TODO = 'ADD_TODO';
+export const TOGGLE_TODO = 'TOGGLE_TODO';
+export const EDIT_TODO = 'EDIT_TODO';
+export const DELETE_TODO = 'DELETE_TODO';
 
-import "./index.scss";
+export const addTodo = text => ({
+  type: ADD_TODO,
+  text
+})
 
-function App() {
-  return <MainView />;
-}
+export const toggleTodo = index => ({
+  type: TOGGLE_TODO,
+  index
+})
 
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
-root.render(<App />);
+export const editTodo = (text, index) => ({
+  type: EDIT_TODO,
+  index,
+  text
+})
+
+export const deleteTodo = index => ({
+  type: DELETE_TODO,
+  index
+})
